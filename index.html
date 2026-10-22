@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cyber Nanning — 基于 OpenStreetMap 真实数据的南宁东盟商务区 3D 城市漫游" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0b18'/%3E%3Cpath d='M8 26V10h4v16zM14 26V4h4v22zM20 26V14h4v12z' fill='%234ff0ff'/%3E%3C/svg%3E" />
+    <title>Cyber Nanning</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="labels"></div>
+
+    <div id="loading" class="overlay">
+      <div class="brand">CYBER<span>NANNING</span></div>
+      <div class="sub">南宁 · 东盟商务区 · 3D 城市漫游</div>
+      <div class="bar"><div id="loading-bar"></div></div>
+      <div id="loading-status">正在启动…</div>
+    </div>
+
+    <div id="start" class="overlay hidden">
+      <div class="brand">CYBER<span>NANNING</span></div>
+      <div class="sub">东盟商务区 · 南宁国际会展中心 · 石门森林公园</div>
+      <button id="start-btn">点击开始漫游</button>
+      <div class="keys">
+        <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</div>
+        <div><kbd>Shift</kbd> 奔跑 &nbsp; <kbd>Space</kbd> 跳跃</div>
+        <div><kbd>鼠标</kbd> 视角 &nbsp; <kbd>滚轮</kbd> 缩放</div>
+        <div><kbd>1</kbd>–<kbd>4</kbd> 地标传送 &nbsp; <kbd>F</kbd> 自由视角 &nbsp; <kbd>M</kbd> 地图 &nbsp; <kbd>T</kbd> 昼夜</div>
+      </div>
+      <div class="credit">地图数据 © OpenStreetMap contributors (ODbL) · 部分建筑为程序化补全</div>
+    </div>
+
+    <div id="hud" class="hidden">
+      <div id="location">
+        <div id="district"></div>
+        <div id="place"></div>
+        <div id="coords"></div>
+      </div>
+      <div id="stats"><span id="fps"></span><span id="speed"></span></div>
+      <canvas id="minimap"></canvas>
+      <div id="help">
+        <b>WASD</b> 移动 · <b>Shift</b> 奔跑 · <b>Space</b> 跳跃 · <b>Q/E</b> 转向 · <b>滚轮</b> 缩放<br />
+        <b>1</b> 万象城 · <b>2</b> 会展中心 · <b>3</b> 石门森林公园 · <b>4</b> 东盟商务区<br />
+        <b>F</b> 自由视角 · <b>M</b> 全图 · <b>T</b> 昼/夜 · <b>B</b> 画质 · <b>H</b> 隐藏提示 · <b>Esc</b> 释放鼠标
+      </div>
+      <div id="mode" class="hidden">
+        <div class="mode-title">自由视角</div>
+        <div><b>WASD</b> 飞行 · <b>E/Space</b> 上升 · <b>Q/C</b> 下降 · <b>Shift</b> 加速 · <b>滚轮</b> 巡航速度</div>
+        <div><b>G</b> 降落到此处 · <b>F</b> 返回角色</div>
+      </div>
+      <div id="paused">点击画面继续</div>
+      <div id="fullmap" class="hidden"><canvas id="fullmap-canvas"></canvas></div>
+      <div id="osm-credit">© OpenStreetMap contributors</div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
